@@ -1,114 +1,248 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>РосНовости — Главные новости России</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>УкрНовини — Головні новини України</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body { font-family: 'Georgia', serif; background: #f4f4f4; }
+    .header-bg { background: linear-gradient(135deg, #005BBB, #FFD500); }
+    .nav-bg { background: #003F8A; }
+    .breaking { animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .card:hover { transform: translateY(-3px); transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
 
   <!-- ШАПКА -->
-  <header class="bg-red-700 text-white py-4 shadow-lg">
-    <div class="max-w-5xl mx-auto px-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-3xl font-black tracking-wide">📰 РосНовости</h1>
-        <p class="text-sm text-red-200">Самые горячие новости страны</p>
-      </div>
-      <div class="text-right text-sm text-red-200">
-        <p id="date"></p>
-        <p>Москва • 🌡️ -3°C</p>
-      </div>
+  <div class="header-bg py-4 px-6 flex items-center justify-between">
+    <div>
+      <h1 class="text-4xl font-black text-white drop-shadow-lg tracking-wide">🇺🇦 УкрНовини</h1>
+      <p class="text-yellow-200 text-sm mt-1">Найсвіжіші новини України та світу</p>
     </div>
-  </header>
-
-  <!-- НАВИГАЦИЯ -->
-  <nav class="bg-red-900 text-white text-sm">
-    <div class="max-w-5xl mx-auto px-4 flex gap-6 py-2">
-      <a href="#" class="hover:text-yellow-300 transition">🏠 Главная</a>
-      <a href="#" class="hover:text-yellow-300 transition">🌍 Политика</a>
-      <a href="#" class="hover:text-yellow-300 transition">💰 Экономика</a>
-      <a href="#" class="hover:text-yellow-300 transition">🔬 Наука</a>
-      <a href="#" class="hover:text-yellow-300 transition">⚽ Спорт</a>
-    </div>
-  </nav>
-
-  <!-- ГЛАВНАЯ НОВОСТЬ -->
-  <div class="max-w-5xl mx-auto px-4 mt-6">
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
-      <div class="bg-gradient-to-r from-red-600 to-orange-500 text-white text-xs font-bold px-4 py-1 uppercase tracking-widest">
-        🔥 Главная новость дня
-      </div>
-      <div class="p-6">
-        <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">СРОЧНО</span>
-        <h2 class="text-2xl font-black mt-2 mb-3 text-gray-800">
-          Роскомнадзор заблокировал сам себя — чиновники не могут попасть на работу
-        </h2>
-        <p class="text-gray-600 text-base leading-relaxed">
-          Сегодня утром, 12 января 2025 года, сотрудники Роскомнадзора обнаружили, что их собственный сайт, внутренняя почта и система пропусков были заблокированы в результате автоматической проверки алгоритма. Алгоритм посчитал, что ведомство «распространяет запрещённую информацию о блокировках», после чего заблокировал все внутренние ресурсы. Более 300 сотрудников не смогли войти в здание — электронные пропуска перестали работать. Пресс-служба пока хранит молчание. По слухам, разблокировать себя ведомство не может, поскольку заявки на разблокировку тоже отправляются через заблокированную почту.
-        </p>
-        <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
-          <span>✍️ Корреспондент: Иван Петров</span>
-          <span>🕐 09:42</span>
-          <span>👁️ 1 248 391 просмотр</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ЛЕНТА НОВОСТЕЙ -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-
-      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
-        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">ЭКОНОМИКА</span>
-        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Цены на гречку выросли на 40% — россияне скупают крупу тоннами</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Эксперты связывают ажиотаж с новостью о том, что один блогер сказал «гречка полезна». Магазины не успевают завозить товар.</p>
-        <div class="flex gap-3 mt-3 text-xs text-gray-400">
-          <span>🕐 10:15</span><span>👁️ 543 102</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
-        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">НАУКА</span>
-        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Российские учёные научили медведя ездить на самокате — готовят к ЧМ</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Медведь по имени Потап успешно прошёл квалификацию в секции «самокат» и установил рекорд скорости среди животных — 23 км/ч.</p>
-        <div class="flex gap-3 mt-3 text-xs text-gray-400">
-          <span>🕐 11:00</span><span>👁️ 889 450</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
-        <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">ПОЛИТИКА</span>
-        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Депутат Госдумы предложил запретить дождь по будням — мешает работать</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Законопроект уже внесён на рассмотрение. Синоптики пока не прокомментировали, как будут исполнять закон.</p>
-        <div class="flex gap-3 mt-3 text-xs text-gray-400">
-          <span>🕐 12:30</span><span>👁️ 2 100 001</span>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
-        <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded">СПОРТ</span>
-        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Сборная России по шахматам выиграла турнир — соперники просто не пришли</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Команда получила кубок по техническим причинам. Тренер сборной заявил: «Победа есть победа, занесите в протокол».</p>
-        <div class="flex gap-3 mt-3 text-xs text-gray-400">
-          <span>🕐 13:55</span><span>👁️ 310 780</span>
-        </div>
-      </div>
-
+    <div class="text-right text-white text-sm">
+      <p>📅 Четвер, 19 червня 2025</p>
+      <p>🌤️ Київ: +22°C</p>
+      <p>💵 USD: 41.2 грн | EUR: 44.8 грн</p>
     </div>
   </div>
 
-  <!-- ПОДВАЛ -->
-  <footer class="bg-gray-800 text-gray-400 text-center py-4 text-sm">
-    <p>© 2025 РосНовости. Все новости выдуманы в развлекательных целях 😄</p>
-    <p class="text-xs mt-1">Сделал <span class="text-white font-bold">Ярик</span> ✌️</p>
+  <!-- НАВІГАЦІЯ -->
+  <nav class="nav-bg text-white">
+    <div class="flex gap-0 overflow-x-auto">
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">🏠 Головна</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">🏛️ Політика</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">⚔️ Война</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">💰 Економіка</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">🌍 Світ</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">⚽ Спорт</a>
+      <a href="#" class="px-5 py-3 hover:bg-yellow-500 hover:text-black font-bold transition text-sm whitespace-nowrap">🔬 Наука</a>
+    </div>
+  </nav>
+
+  <!-- СТРІЧКА НОВИН -->
+  <div class="bg-red-600 text-white py-2 px-4 flex items-center gap-4 overflow-hidden">
+    <span class="breaking font-black text-sm whitespace-nowrap">🔴 ТЕРМІНОВО:</span>
+    <div class="overflow-hidden whitespace-nowrap">
+      <span class="inline-block animate-marquee text-sm">
+        ЗСУ відбили атаку на Харківщині &nbsp;|&nbsp; Зеленський провів переговори з лідерами ЄС &nbsp;|&nbsp; Нові санкції проти Росії схвалено &nbsp;|&nbsp; Рада прийняла закон про мобілізацію &nbsp;|&nbsp; НАТО підтвердило підтримку України &nbsp;
+      </span>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-6">
+
+    <!-- ГОЛОВНА НОВИНА -->
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 card cursor-pointer">
+      <div class="relative">
+        <div class="bg-gradient-to-br from-blue-900 to-blue-600 h-72 flex items-center justify-center">
+          <span class="text-9xl">🇺🇦</span>
+        </div>
+        <span class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-black">🔥 ГОЛОВНА НОВИНА</span>
+      </div>
+      <div class="p-6">
+        <p class="text-gray-400 text-xs mb-2">⏰ 14:32 · Сьогодні</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-3 leading-tight">
+          Україна отримає від США новий пакет військової допомоги на 3 мільярди доларів
+        </h2>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Сполучені Штати Америки оголосили про надання Україні чергового пакету військової та гуманітарної допомоги загальним обсягом 3 мільярди доларів. До пакету увійдуть системи протиповітряної оборони, артилерійські боєприпаси, бронетехніка та засоби радіоелектронної боротьби. Президент Байден підтвердив, що підтримка України залишається пріоритетом для США.
+        </p>
+        <div class="flex items-center gap-4 mt-4">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700">Читати далі →</button>
+          <span class="text-gray-400 text-sm">👁️ 128,400 переглядів</span>
+          <span class="text-gray-400 text-sm">💬 2,341 коментарів</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- СІТКА НОВИН -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
+      <!-- Новина 1 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 h-44 flex items-center justify-center">
+          <span class="text-7xl">💣</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full font-bold">⚔️ ВОЙНА</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 13:15 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">ЗСУ знищили склад боєприпасів ворога на Запоріжжі — вибух було чутно за 40 км</h3>
+          <p class="text-gray-500 text-sm">Українські захисники завдали точного удару по великому складу боєприпасів Збройних сил Росії. За даними розвідки, знищено більше 500 тонн артилерійських снарядів.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 87,200</span>
+            <span>💬 1,204</span>
+            <span>❤️ 4,311</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новина 2 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-green-500 to-teal-600 h-44 flex items-center justify-center">
+          <span class="text-7xl">🏛️</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-bold">🏛️ ПОЛІТИКА</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 11:48 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Зеленський підписав указ про нові виплати ветеранам та сім'ям загиблих захисників</h3>
+          <p class="text-gray-500 text-sm">Президент України Володимир Зеленський підписав указ, яким збільшуються виплати ветеранам та родинам загиблих військовослужбовців вдвічі з 1 серпня 2025 року.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 54,100</span>
+            <span>💬 891</span>
+            <span>❤️ 6,788</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новина 3 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-purple-500 to-indigo-600 h-44 flex items-center justify-center">
+          <span class="text-7xl">💰</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">💰 ЕКОНОМІКА</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 10:22 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">МВФ виділить Україні додаткові 2 мільярди євро для підтримки бюджету країни</h3>
+          <p class="text-gray-500 text-sm">Міжнародний валютний фонд затвердив черговий транш фінансової допомоги для України. Кошти будуть спрямовані на фінансування соціальних програм та відновлення інфраструктури.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 41,900</span>
+            <span>💬 673</span>
+            <span>❤️ 2,100</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новина 4 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-pink-400 to-red-500 h-44 flex items-center justify-center">
+          <span class="text-7xl">⚽</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-bold">⚽ СПОРТ</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 09:05 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Збірна України з футболу вийшла у чвертьфінал чемпіонату Європи — перемога 2:1</h3>
+          <p class="text-gray-500 text-sm">Українські футболісти здобули вольову перемогу в матчі 1/8 фіналу Євро-2025. Голи забили Яремчук та Мудрик. Фанати по всій країні вибухнули святкуванням.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 210,000</span>
+            <span>💬 5,430</span>
+            <span>❤️ 18,900</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новина 5 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-cyan-400 to-blue-500 h-44 flex items-center justify-center">
+          <span class="text-7xl">🔬</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full font-bold">🔬 НАУКА</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 08:30 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Українські вчені розробили новий дрон-камікадзе з дальністю 1000 км та точністю 98%</h3>
+          <p class="text-gray-500 text-sm">Науковці Київського політехнічного інституту спільно з оборонними підприємствами представили революційний безпілотник, який вже передано на фронт.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 95,600</span>
+            <span>💬 3,210</span>
+            <span>❤️ 7,450</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Новина 6 -->
+      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
+        <div class="bg-gradient-to-br from-amber-400 to-yellow-500 h-44 flex items-center justify-center">
+          <span class="text-7xl">🌍</span>
+        </div>
+        <div class="p-4">
+          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full font-bold">🌍 СВІТ</span>
+          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 07:55 · Сьогодні</p>
+          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">ООН засудила ракетні обстріли мирних міст України: "Це воєнний злочин"</h3>
+          <p class="text-gray-500 text-sm">Рада безпеки ООН на екстреному засіданні прийняла резолюцію з вимогою негайного припинення обстрілів цивільної інфраструктури та жилих кварталів України.</p>
+          <div class="flex gap-3 mt-3 text-xs text-gray-400">
+            <span>👁️ 62,300</span>
+            <span>💬 1,890</span>
+            <span>❤️ 5,100</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ОПИТУВАННЯ -->
+    <div class="bg-blue-900 text-white rounded-2xl p-6 mb-8">
+      <h3 class="text-xl font-black mb-1">📊 Опитування дня</h3>
+      <p class="text-blue-200 text-sm mb-4">Чи вірите ви в перемогу України?</p>
+      <div class="space-y-3">
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span>🇺🇦 Так, однозначно!</span><span>78%</span></div>
+          <div class="bg-blue-700 rounded-full h-4"><div class="bg-yellow-400 h-4 rounded-full" style="width:78%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span>🤔 Важко сказати</span><span>15%</span></div>
+          <div class="bg-blue-700 rounded-full h-4"><div class="bg-gray-400 h-4 rounded-full" style="width:15%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1"><span>😔 Не знаю</span><span>7%</span></div>
+          <div class="bg-blue-700 rounded-full h-4"><div class="bg-red-400 h-4 rounded-full" style="width:7%"></div></div>
+        </div>
+      </div>
+      <p class="text-blue-300 text-xs mt-3">Проголосували: 143,892 осіб</p>
+    </div>
+
+  </div>
+
+  <!-- ФУТЕР -->
+  <footer class="bg-gray-900 text-white py-8 px-6 mt-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <h2 class="text-2xl font-black">🇺🇦 УкрНовини</h2>
+        <p class="text-gray-400 text-sm mt-1">Найправдивіші новини України</p>
+      </div>
+      <div class="text-center text-gray-400 text-sm">
+        <p>📧 redakciya@ukrnovyny.ua</p>
+        <p>📞 +38 (044) 123-45-67</p>
+      </div>
+      <div class="text-gray-500 text-sm text-right">
+        <p>© 2025 УкрНовини</p>
+        <p class="text-yellow-400 font-bold mt-1">⚡ Зробив Ярик</p>
+        <p class="text-blue-400 mt-1">🇺🇦 Слава Україні!</p>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const d = new Date();
-    document.getElementById('date').textContent = d.toLocaleDateString('ru-RU', {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    });
-  </script>
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
+  </style>
 
 </body>
 </html>
