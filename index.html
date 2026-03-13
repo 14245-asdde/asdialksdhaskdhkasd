@@ -11,7 +11,14 @@
     .nav-bg { background: #003F8A; }
     .breaking { animation: blink 1.5s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    .card:hover { transform: translateY(-3px); transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -52,171 +59,43 @@
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 py-6">
+  <div class="max-w-4xl mx-auto px-4 py-8">
 
     <!-- ГОЛОВНА НОВИНА -->
-    <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8 card cursor-pointer">
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
       <div class="relative">
         <div class="bg-gradient-to-br from-blue-900 to-blue-600 h-72 flex items-center justify-center">
           <span class="text-9xl">🇺🇦</span>
         </div>
         <span class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-black">🔥 ГОЛОВНА НОВИНА</span>
       </div>
-      <div class="p-6">
-        <p class="text-gray-400 text-xs mb-2">⏰ 14:32 · Сьогодні</p>
-        <h2 class="text-3xl font-black text-gray-900 mb-3 leading-tight">
+      <div class="p-8">
+        <p class="text-gray-400 text-xs mb-3">⏰ 14:32 · Сьогодні</p>
+        <h2 class="text-3xl font-black text-gray-900 mb-5 leading-tight">
           Україна отримає від США новий пакет військової допомоги на 3 мільярди доларів
         </h2>
-        <p class="text-gray-600 text-base leading-relaxed">
+        <p class="text-gray-600 text-base leading-relaxed mb-4">
           Сполучені Штати Америки оголосили про надання Україні чергового пакету військової та гуманітарної допомоги загальним обсягом 3 мільярди доларів. До пакету увійдуть системи протиповітряної оборони, артилерійські боєприпаси, бронетехніка та засоби радіоелектронної боротьби. Президент Байден підтвердив, що підтримка України залишається пріоритетом для США.
         </p>
-        <div class="flex items-center gap-4 mt-4">
-          <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700">Читати далі →</button>
+        <p class="text-gray-600 text-base leading-relaxed mb-4">
+          За словами міністра оборони США, перші поставки розпочнуться вже наступного тижня. Серед ключових елементів пакету — зенітно-ракетні комплекси Patriot, понад 100 одиниць бронетехніки Bradley, а також великий обсяг артилерійських снарядів калібру 155 мм.
+        </p>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Президент України Володимир Зеленський подякував американським партнерам за незламну підтримку та заявив, що ця допомога суттєво посилить обороноздатність країни на всіх напрямках фронту. Очікується, що рішення буде офіційно підписано на найближчому засіданні Конгресу США.
+        </p>
+        <div class="flex items-center gap-6 mt-6 pt-6 border-t border-gray-100">
           <span class="text-gray-400 text-sm">👁️ 128,400 переглядів</span>
           <span class="text-gray-400 text-sm">💬 2,341 коментарів</span>
+          <span class="text-gray-400 text-sm">❤️ 9,870 вподобань</span>
         </div>
       </div>
-    </div>
-
-    <!-- СІТКА НОВИН -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-
-      <!-- Новина 1 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 h-44 flex items-center justify-center">
-          <span class="text-7xl">💣</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full font-bold">⚔️ ВОЙНА</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 13:15 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">ЗСУ знищили склад боєприпасів ворога на Запоріжжі — вибух було чутно за 40 км</h3>
-          <p class="text-gray-500 text-sm">Українські захисники завдали точного удару по великому складу боєприпасів Збройних сил Росії. За даними розвідки, знищено більше 500 тонн артилерійських снарядів.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 87,200</span>
-            <span>💬 1,204</span>
-            <span>❤️ 4,311</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Новина 2 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-green-500 to-teal-600 h-44 flex items-center justify-center">
-          <span class="text-7xl">🏛️</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-bold">🏛️ ПОЛІТИКА</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 11:48 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Зеленський підписав указ про нові виплати ветеранам та сім'ям загиблих захисників</h3>
-          <p class="text-gray-500 text-sm">Президент України Володимир Зеленський підписав указ, яким збільшуються виплати ветеранам та родинам загиблих військовослужбовців вдвічі з 1 серпня 2025 року.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 54,100</span>
-            <span>💬 891</span>
-            <span>❤️ 6,788</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Новина 3 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-purple-500 to-indigo-600 h-44 flex items-center justify-center">
-          <span class="text-7xl">💰</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">💰 ЕКОНОМІКА</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 10:22 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">МВФ виділить Україні додаткові 2 мільярди євро для підтримки бюджету країни</h3>
-          <p class="text-gray-500 text-sm">Міжнародний валютний фонд затвердив черговий транш фінансової допомоги для України. Кошти будуть спрямовані на фінансування соціальних програм та відновлення інфраструктури.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 41,900</span>
-            <span>💬 673</span>
-            <span>❤️ 2,100</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Новина 4 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-pink-400 to-red-500 h-44 flex items-center justify-center">
-          <span class="text-7xl">⚽</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full font-bold">⚽ СПОРТ</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 09:05 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Збірна України з футболу вийшла у чвертьфінал чемпіонату Європи — перемога 2:1</h3>
-          <p class="text-gray-500 text-sm">Українські футболісти здобули вольову перемогу в матчі 1/8 фіналу Євро-2025. Голи забили Яремчук та Мудрик. Фанати по всій країні вибухнули святкуванням.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 210,000</span>
-            <span>💬 5,430</span>
-            <span>❤️ 18,900</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Новина 5 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-cyan-400 to-blue-500 h-44 flex items-center justify-center">
-          <span class="text-7xl">🔬</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full font-bold">🔬 НАУКА</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 08:30 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">Українські вчені розробили новий дрон-камікадзе з дальністю 1000 км та точністю 98%</h3>
-          <p class="text-gray-500 text-sm">Науковці Київського політехнічного інституту спільно з оборонними підприємствами представили революційний безпілотник, який вже передано на фронт.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 95,600</span>
-            <span>💬 3,210</span>
-            <span>❤️ 7,450</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Новина 6 -->
-      <div class="bg-white rounded-xl shadow card cursor-pointer overflow-hidden">
-        <div class="bg-gradient-to-br from-amber-400 to-yellow-500 h-44 flex items-center justify-center">
-          <span class="text-7xl">🌍</span>
-        </div>
-        <div class="p-4">
-          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full font-bold">🌍 СВІТ</span>
-          <p class="text-gray-400 text-xs mt-2 mb-1">⏰ 07:55 · Сьогодні</p>
-          <h3 class="text-lg font-black text-gray-900 leading-snug mb-2">ООН засудила ракетні обстріли мирних міст України: "Це воєнний злочин"</h3>
-          <p class="text-gray-500 text-sm">Рада безпеки ООН на екстреному засіданні прийняла резолюцію з вимогою негайного припинення обстрілів цивільної інфраструктури та жилих кварталів України.</p>
-          <div class="flex gap-3 mt-3 text-xs text-gray-400">
-            <span>👁️ 62,300</span>
-            <span>💬 1,890</span>
-            <span>❤️ 5,100</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ОПИТУВАННЯ -->
-    <div class="bg-blue-900 text-white rounded-2xl p-6 mb-8">
-      <h3 class="text-xl font-black mb-1">📊 Опитування дня</h3>
-      <p class="text-blue-200 text-sm mb-4">Чи вірите ви в перемогу України?</p>
-      <div class="space-y-3">
-        <div>
-          <div class="flex justify-between text-sm mb-1"><span>🇺🇦 Так, однозначно!</span><span>78%</span></div>
-          <div class="bg-blue-700 rounded-full h-4"><div class="bg-yellow-400 h-4 rounded-full" style="width:78%"></div></div>
-        </div>
-        <div>
-          <div class="flex justify-between text-sm mb-1"><span>🤔 Важко сказати</span><span>15%</span></div>
-          <div class="bg-blue-700 rounded-full h-4"><div class="bg-gray-400 h-4 rounded-full" style="width:15%"></div></div>
-        </div>
-        <div>
-          <div class="flex justify-between text-sm mb-1"><span>😔 Не знаю</span><span>7%</span></div>
-          <div class="bg-blue-700 rounded-full h-4"><div class="bg-red-400 h-4 rounded-full" style="width:7%"></div></div>
-        </div>
-      </div>
-      <p class="text-blue-300 text-xs mt-3">Проголосували: 143,892 осіб</p>
     </div>
 
   </div>
 
   <!-- ФУТЕР -->
   <footer class="bg-gray-900 text-white py-8 px-6 mt-4">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div>
         <h2 class="text-2xl font-black">🇺🇦 УкрНовини</h2>
         <p class="text-gray-400 text-sm mt-1">Найправдивіші новини України</p>
@@ -232,17 +111,6 @@
       </div>
     </div>
   </footer>
-
-  <style>
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .animate-marquee {
-      display: inline-block;
-      animation: marquee 20s linear infinite;
-    }
-  </style>
 
 </body>
 </html>
