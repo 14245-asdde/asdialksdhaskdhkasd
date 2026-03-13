@@ -2,36 +2,113 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Роскомнадзор</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-    .text {
-      color: red;
-      font-size: 48px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 1.5;
-    }
-    .sub {
-      color: white;
-      font-size: 24px;
-      text-align: center;
-      margin-top: 20px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>РосНовости — Главные новости России</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-  <div>
-    <div class="text">⛔ РОСКОМНАДЗОР ⛔</div>
-    <div class="sub">треплет нервы всем уже достал</div>
+<body class="bg-gray-100 font-sans">
+
+  <!-- ШАПКА -->
+  <header class="bg-red-700 text-white py-4 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-black tracking-wide">📰 РосНовости</h1>
+        <p class="text-sm text-red-200">Самые горячие новости страны</p>
+      </div>
+      <div class="text-right text-sm text-red-200">
+        <p id="date"></p>
+        <p>Москва • 🌡️ -3°C</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="bg-red-900 text-white text-sm">
+    <div class="max-w-5xl mx-auto px-4 flex gap-6 py-2">
+      <a href="#" class="hover:text-yellow-300 transition">🏠 Главная</a>
+      <a href="#" class="hover:text-yellow-300 transition">🌍 Политика</a>
+      <a href="#" class="hover:text-yellow-300 transition">💰 Экономика</a>
+      <a href="#" class="hover:text-yellow-300 transition">🔬 Наука</a>
+      <a href="#" class="hover:text-yellow-300 transition">⚽ Спорт</a>
+    </div>
+  </nav>
+
+  <!-- ГЛАВНАЯ НОВОСТЬ -->
+  <div class="max-w-5xl mx-auto px-4 mt-6">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
+      <div class="bg-gradient-to-r from-red-600 to-orange-500 text-white text-xs font-bold px-4 py-1 uppercase tracking-widest">
+        🔥 Главная новость дня
+      </div>
+      <div class="p-6">
+        <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">СРОЧНО</span>
+        <h2 class="text-2xl font-black mt-2 mb-3 text-gray-800">
+          Роскомнадзор заблокировал сам себя — чиновники не могут попасть на работу
+        </h2>
+        <p class="text-gray-600 text-base leading-relaxed">
+          Сегодня утром, 12 января 2025 года, сотрудники Роскомнадзора обнаружили, что их собственный сайт, внутренняя почта и система пропусков были заблокированы в результате автоматической проверки алгоритма. Алгоритм посчитал, что ведомство «распространяет запрещённую информацию о блокировках», после чего заблокировал все внутренние ресурсы. Более 300 сотрудников не смогли войти в здание — электронные пропуска перестали работать. Пресс-служба пока хранит молчание. По слухам, разблокировать себя ведомство не может, поскольку заявки на разблокировку тоже отправляются через заблокированную почту.
+        </p>
+        <div class="flex items-center gap-4 mt-4 text-sm text-gray-400">
+          <span>✍️ Корреспондент: Иван Петров</span>
+          <span>🕐 09:42</span>
+          <span>👁️ 1 248 391 просмотр</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ЛЕНТА НОВОСТЕЙ -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
+        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">ЭКОНОМИКА</span>
+        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Цены на гречку выросли на 40% — россияне скупают крупу тоннами</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Эксперты связывают ажиотаж с новостью о том, что один блогер сказал «гречка полезна». Магазины не успевают завозить товар.</p>
+        <div class="flex gap-3 mt-3 text-xs text-gray-400">
+          <span>🕐 10:15</span><span>👁️ 543 102</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
+        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">НАУКА</span>
+        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Российские учёные научили медведя ездить на самокате — готовят к ЧМ</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Медведь по имени Потап успешно прошёл квалификацию в секции «самокат» и установил рекорд скорости среди животных — 23 км/ч.</p>
+        <div class="flex gap-3 mt-3 text-xs text-gray-400">
+          <span>🕐 11:00</span><span>👁️ 889 450</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
+        <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">ПОЛИТИКА</span>
+        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Депутат Госдумы предложил запретить дождь по будням — мешает работать</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Законопроект уже внесён на рассмотрение. Синоптики пока не прокомментировали, как будут исполнять закон.</p>
+        <div class="flex gap-3 mt-3 text-xs text-gray-400">
+          <span>🕐 12:30</span><span>👁️ 2 100 001</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition">
+        <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded">СПОРТ</span>
+        <h3 class="text-lg font-bold mt-2 mb-2 text-gray-800">Сборная России по шахматам выиграла турнир — соперники просто не пришли</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Команда получила кубок по техническим причинам. Тренер сборной заявил: «Победа есть победа, занесите в протокол».</p>
+        <div class="flex gap-3 mt-3 text-xs text-gray-400">
+          <span>🕐 13:55</span><span>👁️ 310 780</span>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <!-- ПОДВАЛ -->
+  <footer class="bg-gray-800 text-gray-400 text-center py-4 text-sm">
+    <p>© 2025 РосНовости. Все новости выдуманы в развлекательных целях 😄</p>
+    <p class="text-xs mt-1">Сделал <span class="text-white font-bold">Ярик</span> ✌️</p>
+  </footer>
+
+  <script>
+    const d = new Date();
+    document.getElementById('date').textContent = d.toLocaleDateString('ru-RU', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+  </script>
+
 </body>
 </html>
